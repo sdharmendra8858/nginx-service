@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx
+    ports:
+      - '80:80'
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    networks:
+      - nginx
+
+networks:
+  nginx:
+    external: true
+    name: users-service_nginx
